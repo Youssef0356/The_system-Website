@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The System - A Game of Deception</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&family=Space+Grotesk:wght@400;500;700&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #1C1C18;
+            --white: #FFFFFF;
+            --background: #FCF9F2;
+            --primary: #EFFF00;
+            --secondary: #D946D9;
+            --light-pink: #FFD7F5;
+            --hot-pink: #FE00FE;
+            --grey-300: #D4D4D4;
+            --grey-400: #9CA3AF;
+            --grey-500: #78795F;
+            --surface: #E5E2DB;
+            --border: 4px;
+            --shadow: 6px 6px 0px var(--black);
+            --shadow-lg: 8px 8px 0px var(--black);
+        }
+
+        body {
+            font-family: 'Newsreader', serif;
+            background-color: var(--background);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Epilogue', sans-serif;
+            font-weight: 900;
+        }
+
+        .label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Halftone Background Pattern */
+        .halftone-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            background-image: radial-gradient(circle, var(--black) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--black);
+            border-bottom: var(--border) solid var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Epilogue', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--white);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--black);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.95;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .accent {
+            color: var(--secondary);
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--grey-500);
+            margin-bottom: 3rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            padding: 1rem 2.5rem;
+            border: var(--border) solid var(--black);
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--black);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px var(--black);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--black);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px var(--black);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Characters Section */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--black);
+            padding: 0.4rem 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            border: 2px solid var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .character-card {
+            background: var(--white);
+            border: 3px solid var(--black);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .character-card:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px var(--black);
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .character-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 2px solid var(--black);
+        }
+
+        .character-card h3 {
+            font-size: 1.1rem;
+        }
+
+        .character-cost {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            color: var(--grey-500);
+        }
+
+        .character-desc {
+            font-size: 0.9rem;
+            color: var(--grey-500);
+            margin-top: 0.5rem;
+        }
+
+        /* How to Play */
+        .how-to-play {
+            background: var(--black);
+            color: var(--white);
+            border-top: var(--border) solid var(--primary);
+            border-bottom: var(--border) solid var(--primary);
+        }
+
+        .how-to-play .section-badge {
+            background: var(--hot-pink);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Epilogue', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            border: 3px solid var(--black);
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--grey-400);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--light-pink);
+            border-top: var(--border) solid var(--black);
+            border-bottom: var(--border) solid var(--black);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-top: var(--border) solid var(--secondary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--grey-400);
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 2px solid var(--grey-500);
+            color: var(--grey-500);
+            font-size: 0.8rem;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--black);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 1rem;
+                border-bottom: var(--border) solid var(--primary);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* Decorative Elements */
+        .pin {
+            width: 16px;
+            height: 16px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 2px solid var(--black);
+            display: inline-block;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="halftone-bg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                THE SYSTEM
+                <span>A GAME OF DECEPTION</span>
+            </a>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+            <ul class="nav-links">
+                <li><a href="#characters">CHARACTERS</a></li>
+                <li><a href="#how-to-play">HOW TO PLAY</a></li>
+                <li><a href="#privacy">PRIVACY</a></li>
+                <li><a href="https://play.google.com/store" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">GET THE APP</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge label">CLASSIFIED DOCUMENT</div>
+            <h1>THE <span class="accent">SYSTEM</span></h1>
+            <p class="hero-tagline">In a world where information is currency and trust is a weapon, you are an operative with a secret identity. Deceive. Survive. Subvert.</p>
+            <div class="hero-buttons">
+                <a href="https://play.google.com/store" class="btn btn-primary">▶ PLAY NOW</a>
+                <a href="#how-to-play" class="btn btn-secondary">? HOW TO PLAY</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section class="section" id="characters">
+        <div class="section-header">
+            <div class="section-badge label">CLASSIFIED</div>
+            <h2>OPERATIVE IDENTITIES</h2>
+            <p style="color: var(--grey-500); margin-top: 0.5rem;">Claim these roles to use their abilities. Others can challenge you!</p>
+        </div>
+        <div class="characters-grid">
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-icon" style="background: #FFD700;">💰</div>
+                    <div>
+                        <h3>BUSINESSMAN</h3>
+                        <div class="character-cost">FREE ABILITY</div>
+                    </div>
+                </div>
+                <p class="character-desc">Take 4 coins from the bank. Cannot be blocked or challenged.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-icon" style="background: #15803D;">📊</div>
+                    <div>
+                        <h3>TAXMAN</h3>
+                        <div class="character-cost">FREE ABILITY</div>
+                    </div>
+                </div>
+                <p class="character-desc">Tax all players with 7+ coins (takes 1 from each). Can block Support from Bank.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-icon" style="background: #EF4444;">💣</div>
+                    <div>
+                        <h3>SABOTEUR</h3>
+                        <div class="character-cost">COSTS 3 COINS</div>
+                    </div>
+                </div>
+                <p class="character-desc">Pay 3 coins to eliminate one card from any player. Target must discard a card.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-icon" style="background: #22C55E;">🎯</div>
+                    <div>
+                        <h3>MARSHAL</h3>
+                        <div class="character-cost">COSTS 4 COINS</div>
+                    </div>
+                </div>
+                <p class="character-desc">Pay 4 coins to guess a player's role. If correct, they lose a card.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-icon" style="background: #3B82F6;">🔍</div>
+                    <div>
+                        <h3>INSPECTOR</h3>
+                        <div class="character-cost">FREE ABILITY</div>
+                    </div>
+                </div>
+                <p class="character-desc">Peek at one of a target's cards. You may choose to swap with one of yours.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-icon" style="background: #9333EA;">🔄</div>
+                    <div>
+                        <h3>POLITICIEN</h3>
+                        <div class="character-cost">FREE ABILITY</div>
+                    </div>
+                </div>
+                <p class="character-desc">Discard all your alive cards and draw new ones from the deck.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-icon" style="background: #F97316;">🪙</div>
+                    <div>
+                        <h3>THIEF</h3>
+                        <div class="character-cost">FREE ABILITY</div>
+                    </div>
+                </div>
+                <p class="character-desc">Steal up to 3 coins from any player. Cannot be blocked.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Play -->
+    <section class="section how-to-play" id="how-to-play">
+        <div class="section-header">
+            <div class="section-badge label">FIELD MANUAL</div>
+            <h2>HOW TO PLAY</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>GATHER OPERATIVES</h3>
+                <p>Gather 2-9 players around one device. Each player receives 2-3 secret identity cards.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>TAKE YOUR TURN</h3>
+                <p>On your turn, choose an action: collect income, claim a role, or use special abilities.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>BLUFF OR CHALLENGE</h3>
+                <p>Anyone can yell "LIAR!" to challenge a claim. But if they're wrong, they lose a card!</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>SURVIVE</h3>
+                <p>Be the last operative standing with at least one identity card still in play.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>READY TO DECEIVE?</h2>
+        <p>Download The System now and prove you can outsmart your friends. Free to play. No internet required.</p>
+        <a href="https://play.google.com/store" class="btn btn-primary">▶ DOWNLOAD FREE</a>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section class="section" id="privacy">
+        <div class="section-header">
+            <div class="section-badge label">LEGAL</div>
+            <h2>PRIVACY POLICY</h2>
+            <p style="color: var(--grey-500);">Last Updated: August 9, 2026</p>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="character-card" style="margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">INTRODUCTION</h3>
+                <p class="character-desc" style="color: var(--black);">Welcome to "The System: Bluffing Game" ("the App"). This privacy policy explains how The356Company ("we", "us", or "our") handles information when you use our mobile application.</p>
+            </div>
+
+            <div class="character-card" style="margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">INFORMATION WE COLLECT</h3>
+                <p class="character-desc" style="color: var(--black);">The App is designed as a local multiplayer game that operates entirely on your device. We do NOT collect, store, or transmit any personal information, including:</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--grey-500); font-size: 0.9rem;">
+                    <li>Player names you enter (stored only in device memory during gameplay)</li>
+                    <li>Game progress or history</li>
+                    <li>Device information</li>
+                    <li>Location data</li>
+                    <li>Contacts or other personal data</li>
+                </ul>
+            </div>
+
+            <div class="character-card" style="margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">ADVERTISING</h3>
+                <p class="character-desc" style="color: var(--black);">The App may display advertisements provided by Google AdMob. AdMob may collect:</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--grey-500); font-size: 0.9rem;">
+                    <li>Advertising ID</li>
+                    <li>Device type and model</li>
+                    <li>Operating system version</li>
+                    <li>Network information</li>
+                </ul>
+                <p class="character-desc" style="color: var(--black); margin-top: 0.5rem;">This data is collected by Google and is subject to Google's Privacy Policy. We do not have access to or control over this data.</p>
+            </div>
+
+            <div class="character-card" style="margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">CHILDREN'S PRIVACY</h3>
+                <p class="character-desc" style="color: var(--black);">The App is suitable for all ages. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
+            </div>
+
+            <div class="character-card" style="margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">CHANGES TO THIS POLICY</h3>
+                <p class="character-desc" style="color: var(--black);">We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy within the App.</p>
+            </div>
+
+            <div class="character-card" style="margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">CONTACT US</h3>
+                <p class="character-desc" style="color: var(--black);">If you have questions about this privacy policy, please contact us at:<br><strong>the356company@gmail.com</strong></p>
+            </div>
+
+            <div class="character-card" style="margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 1rem;">CONTENT RATING</h3>
+                <p class="character-desc" style="color: var(--black);">This app is rated "Everyone" by the Entertainment Software Rating Board (ESRB) and suitable for all ages.</p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--grey-500); font-size: 0.9rem;">
+                    <li>Fantasy Violence (mild, non-graphic)</li>
+                    <li>No real gambling or real-money transactions</li>
+                    <li>No online interaction</li>
+                    <li>No user-generated content</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>THE SYSTEM</h4>
+                <p>A bluffing card game for 2-9 players. Deceive your friends. Be the last one standing.</p>
+            </div>
+            <div class="footer-section">
+                <h4>QUICK LINKS</h4>
+                <a href="#characters">Characters</a>
+                <a href="#how-to-play">How to Play</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="https://play.google.com/store">Get the App</a>
+            </div>
+            <div class="footer-section">
+                <h4>CONTACT</h4>
+                <p>the356company@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The356Company. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
