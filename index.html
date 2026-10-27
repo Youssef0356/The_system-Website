@@ -1,699 +1,2373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The System - A Game of Deception</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&family=Space+Grotesk:wght@400;500;700&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>The System: Bluffing Card Game | Tactical Social Deduction (2-8 Players)</title>
+  <meta name="title" content="The System: Bluffing Card Game | Tactical Social Deduction (2-8 Players)">
+  <meta name="description" content="Download The System: a high-stakes social deduction and bluffing card game for 2-8 players. Claim secret roles, fake abilities, call out liars, and survive. Play pass-and-play on one phone, solo vs AI bots, or online multiplayer. Inspired by El Mekina.">
+  <meta name="keywords" content="The System card game, bluffing card game, social deduction game, El Mekina card game, coup card game alternative, lying card game, Android party games, pass and play card game, 2-8 player card game, secret identity games, mobile board game">
+  <meta name="author" content="The 356 Company / The 356 Developper">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://youssef0356.github.io/The_system-Website/">
+  
+  <!-- Mobile & Store Meta -->
+  <meta name="theme-color" content="#F5C542">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="The System">
+  <meta name="google-play-app" content="app-id=com.the356company.the_system">
 
-        :root {
-            --black: #1C1C18;
-            --white: #FFFFFF;
-            --background: #FCF9F2;
-            --primary: #eeff00b4;
-            --secondary: #D946D9;
-            --light-pink: #FFD7F5;
-            --hot-pink: #FE00FE;
-            --grey-300: #D4D4D4;
-            --grey-400: #9CA3AF;
-            --grey-500: #78795F;
-            --surface: #E5E2DB;
-            --border: 4px;
-            --shadow: 6px 6px 0px var(--black);
-            --shadow-lg: 8px 8px 0px var(--black);
-        }
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/branding/Icon-192.png">
+  <link rel="manifest" href="site.webmanifest">
 
-        body {
-            font-family: 'Newsreader', serif;
-            background-color: var(--background);
-            color: var(--black);
-            line-height: 1.6;
-        }
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://youssef0356.github.io/The_system-Website/">
+  <meta property="og:title" content="The System: Bluffing Card Game | A Game of Deception">
+  <meta property="og:description" content="In a world where information is currency and trust is a weapon, you are an operative with a secret identity. Deceive. Survive. Subvert. 2-8 Players.">
+  <meta property="og:image" content="https://youssef0356.github.io/The_system-Website/assets/img/screenshots/hero_banner_16_9.png">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:site_name" content="The System">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Video Open Graph Tags -->
+  <meta property="og:video" content="https://youssef0356.github.io/The_system-Website/assets/video/the_system_trailer.mp4">
+  <meta property="og:video:type" content="video/mp4">
+  <meta property="og:video:width" content="1920">
+  <meta property="og:video:height" content="1080">
 
-        h1, h2, h3, h4 {
-            font-family: 'Epilogue', sans-serif;
-            font-weight: 900;
-        }
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://youssef0356.github.io/The_system-Website/">
+  <meta name="twitter:title" content="The System: Bluffing Card Game | Tactical Social Deduction">
+  <meta name="twitter:description" content="Everyone holds secret identity cards. Claim any role. Call out the liars. 2-8 players pass-and-play or online. Download on Google Play & Itch.io.">
+  <meta name="twitter:image" content="https://youssef0356.github.io/The_system-Website/assets/img/screenshots/hero_banner_16_9.png">
 
-        .label {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;0,800;0,900;1,900&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-        /* Halftone Background Pattern */
-        .halftone-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.05;
-            background-image: radial-gradient(circle, var(--black) 1px, transparent 1px);
-            background-size: 20px 20px;
+  <!-- Structured Data (JSON-LD) for Google, Perplexity, GPTBot & Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://youssef0356.github.io/The_system-Website/#game",
+        "name": "The System: Bluffing Card Game",
+        "operatingSystem": "Android 5.0 and up",
+        "applicationCategory": "GameApplication",
+        "applicationSubCategory": "Card Game, Social Deduction",
+        "description": "The System is a bluffing card game of lies, strategy, and betrayals for 2-8 players. Claim secret roles, fake abilities, call out lies, and be the last operative standing.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "The 356 Company",
+          "url": "https://github.com/Youssef0356"
+        },
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.the356company.the_system",
+        "sameAs": [
+          "https://play.google.com/store/apps/details?id=com.the356company.the_system",
+          "https://youssef356.itch.io/the-system-card-game",
+          "https://github.com/Youssef0356/The_system-Website"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "120",
+          "bestRating": "5"
         }
-
-        /* Navigation */
-        nav {
-            background: var(--black);
-            border-bottom: var(--border) solid var(--primary);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Epilogue', sans-serif;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo span {
-            display: block;
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            color: var(--white);
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem 2rem;
-            position: relative;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: var(--black);
-            color: var(--primary);
-            padding: 0.5rem 1.5rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 900;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 0.95;
-            margin-bottom: 1rem;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 .accent {
-            color: var(--secondary);
-        }
-
-        .hero-tagline {
-            font-size: 1.1rem;
-            color: var(--grey-500);
-            margin-bottom: 3rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 900;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            padding: 1rem 2.5rem;
-            border: var(--border) solid var(--black);
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.1s, box-shadow 0.1s;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--black);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-primary:hover {
-            transform: translate(3px, 3px);
-            box-shadow: 3px 3px 0px var(--black);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--black);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-secondary:hover {
-            transform: translate(3px, 3px);
-            box-shadow: 3px 3px 0px var(--black);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Characters Section */
-        .section {
-            padding: 5rem 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--black);
-            padding: 0.4rem 1rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 900;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            border: 2px solid var(--black);
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .characters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .character-card {
-            background: var(--white);
-            border: 3px solid var(--black);
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            transition: transform 0.1s, box-shadow 0.1s;
-        }
-
-        .character-card:hover {
-            transform: translate(3px, 3px);
-            box-shadow: 3px 3px 0px var(--black);
-        }
-
-        .character-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .character-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            border: 2px solid var(--black);
-        }
-
-        .character-card h3 {
-            font-size: 1.1rem;
-        }
-
-        .character-cost {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.7rem;
-            color: var(--grey-500);
-        }
-
-        .character-desc {
-            font-size: 0.9rem;
-            color: var(--grey-500);
-            margin-top: 0.5rem;
-        }
-
-        /* How to Play */
-        .how-to-play {
-            background: var(--black);
-            color: var(--white);
-            border-top: var(--border) solid var(--primary);
-            border-bottom: var(--border) solid var(--primary);
-        }
-
-        .how-to-play .section-badge {
-            background: var(--hot-pink);
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .step {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            color: var(--black);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Epilogue', sans-serif;
-            font-weight: 900;
-            font-size: 1.5rem;
-            border: 3px solid var(--black);
-            margin: 0 auto 1rem;
-        }
-
-        .step h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .step p {
-            color: var(--grey-400);
-            font-size: 0.9rem;
-        }
-
-        /* CTA Section */
-        .cta {
-            background: var(--light-pink);
-            border-top: var(--border) solid var(--black);
-            border-bottom: var(--border) solid var(--black);
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            margin-bottom: 2rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--black);
-            color: var(--white);
-            padding: 3rem 2rem;
-            border-top: var(--border) solid var(--secondary);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: var(--grey-400);
-            font-size: 0.85rem;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 2px solid var(--grey-500);
-            color: var(--grey-500);
-            font-size: 0.8rem;
-        }
-
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+      },
+      {
+        "@type": "VideoGame",
+        "name": "The System",
+        "gamePlatform": ["Android", "PC"],
+        "numberOfPlayers": {
+          "@type": "QuantitativeValue",
+          "minValue": 2,
+          "maxValue": 8
+        },
+        "playMode": ["MultiPlayer", "SinglePlayer", "CoOp"],
+        "genre": ["Bluffing Game", "Social Deduction", "Party Card Game", "Strategy"],
+        "url": "https://youssef0356.github.io/The_system-Website/"
+      },
+      {
+        "@type": "VideoObject",
+        "name": "The System — Official 15s Launch Trailer",
+        "description": "Watch the official gameplay trailer for The System: Bluffing Card Game. Discover the 7 classified roles, the challenge timer, and intense social deduction.",
+        "thumbnailUrl": [
+          "https://youssef0356.github.io/The_system-Website/assets/video/trailer_poster.jpg"
+        ],
+        "uploadDate": "2026-10-22T15:53:21+01:00",
+        "duration": "PT10S",
+        "contentUrl": "https://youssef0356.github.io/The_system-Website/assets/video/the_system_trailer.mp4",
+        "embedUrl": "https://youssef0356.github.io/The_system-Website/assets/video/the_system_trailer.mp4"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is The System: Bluffing Card Game?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The System is a 2 to 8 player social-deduction bluffing card game inspired by the traditional Tunisian card game 'El Mekina'. Each player receives secret role cards (Businessman, Taxman, Assassin, Marshal, Detective, Politician, Thief). On your turn, you claim a role out loud and execute its ability—whether you hold the card or are bluffing. Any rival can challenge your claim before the timer expires. Caught liars lose a card; false accusers lose a card too. The last operative with cards standing wins."
             }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--black);
-                flex-direction: column;
-                padding: 1rem 2rem;
-                gap: 1rem;
-                border-bottom: var(--border) solid var(--primary);
+          },
+          {
+            "@type": "Question",
+            "name": "How many players can play The System?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The System supports 2 to 8 players in local pass-and-play on a single smartphone or tablet. It also features a single-player mode against smart AI bots with adjustable difficulty, and online 1v1 multiplayer with ELO matchmaking."
             }
-
-            .nav-links.active {
-                display: flex;
+          },
+          {
+            "@type": "Question",
+            "name": "What are the 7 roles in The System?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The 7 operative roles are: 1. Businessman (takes 4 coins from bank), 2. Taxman (taxes players with 7+ coins & blocks Support), 3. Assassin (pays 3 coins to eliminate a rival's card), 4. Marshal (pays 4 coins to interrogate and guess a role), 5. Detective (peeks and swaps cards), 6. Politician (redraws an entirely new hand), and 7. Thief (steals up to 2 coins from any rival)."
             }
-
-            .hero h1 {
-                font-size: 3rem;
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I download The System?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The System is available on the Google Play Store for Android devices (Package ID: com.the356company.the_system) and on Itch.io (by The 356 Developper) for direct Android APK and PC downloads."
             }
-        }
+          },
+          {
+            "@type": "Question",
+            "name": "Does The System require an active internet connection?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The main party game mode is pass-and-play on a single phone or tablet without requiring internet or Wi-Fi, making it ideal for road trips, game nights, and flights. Solo mode against AI bots also works 100% offline."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
-        /* Decorative Elements */
-        .pin {
-            width: 16px;
-            height: 16px;
-            background: var(--secondary);
-            border-radius: 50%;
-            border: 2px solid var(--black);
-            display: inline-block;
-            margin: 0 0.5rem;
-        }
-    </style>
+  <style>
+    /* ==========================================================================
+       STYLE BIBLE: Neo-Brutalist Spy Dossier x 90s Comic Paper Collage
+       Palette:
+         --ink: #1A140E (Outlines, heavy borders, dark text)
+         --cream: #F7F2E7 (Dotted paper background)
+         --white: #FFFFFF (Clean paper, card bases)
+         --yellow: #F5C542 (Signal yellow highlights, primary buttons)
+         --yellow-hover: #E8B429
+         --red: #C7332C (Stamp red, danger, challenge alert)
+         --red-bg: #FFEBEA
+         --manila: #F0D9B8 (Dossier folders, cards)
+         --purple: #B44DCC (Offset shadows, rogue accents)
+         --cyan: #38BDF8 (Tactical tech details)
+         --green: #22C55E (Success, verified)
+         --border-w: 3.5px
+         --shadow-hard: 5px 5px 0px #1A140E
+         --shadow-hard-lg: 8px 8px 0px #1A140E
+       ========================================================================== */
+
+    :root {
+      --ink: #1A140E;
+      --cream: #F7F2E7;
+      --cream-dark: #ECE5D5;
+      --white: #FFFFFF;
+      --yellow: #F5C542;
+      --yellow-hover: #e2b22d;
+      --red: #C7332C;
+      --red-bg: #FEECEB;
+      --manila: #F0D9B8;
+      --purple: #B44DCC;
+      --cyan: #0284C7;
+      --green: #15803D;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-500: #6B7280;
+      --gray-700: #374151;
+      --border: 3.5px solid var(--ink);
+      --border-thin: 2px solid var(--ink);
+      --shadow: 5px 5px 0px var(--ink);
+      --shadow-sm: 3px 3px 0px var(--ink);
+      --shadow-lg: 8px 8px 0px var(--ink);
+      --shadow-purple: 6px 6px 0px var(--purple);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Newsreader', Georgia, serif;
+      background-color: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Halftone Tactile Background Pattern */
+    .halftone-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.06;
+      background-image: radial-gradient(circle, var(--ink) 1.5px, transparent 1.5px);
+      background-size: 18px 18px;
+    }
+
+    /* Subtle paper noise texture overlay */
+    .paper-texture {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.03;
+      background: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
+    }
+
+    /* Typography Presets */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Epilogue', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .ui-font, .badge, .btn, .tag, nav a, .card-cost, .table-header {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    /* Red Classified Rubber Stamps */
+    .stamp {
+      display: inline-block;
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      color: var(--red);
+      border: 3.5px dashed var(--red);
+      padding: 0.35rem 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transform: rotate(-3.5deg);
+      user-select: none;
+      line-height: 1;
+      font-size: 0.9rem;
+      background: rgba(199, 51, 44, 0.05);
+      border-radius: 4px;
+    }
+
+    .stamp-lg {
+      font-size: 1.4rem;
+      padding: 0.5rem 1.4rem;
+      border-width: 4px;
+      transform: rotate(-5deg);
+    }
+
+    .stamp-yellow {
+      color: var(--ink);
+      border-color: var(--ink);
+      background: var(--yellow);
+      transform: rotate(2deg);
+    }
+
+    /* Buttons & Tactical CTAs */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.75rem;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--white);
+      border: var(--border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: all 0.12s ease-in-out;
+      text-transform: uppercase;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 3px 3px 0px var(--ink);
+    }
+
+    .btn:active {
+      transform: translate(5px, 5px);
+      box-shadow: 0px 0px 0px var(--ink);
+    }
+
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: var(--yellow-hover);
+    }
+
+    .btn-playstore {
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: 5px 5px 0px var(--purple);
+    }
+
+    .btn-playstore:hover {
+      background: #2a221b;
+      box-shadow: 3px 3px 0px var(--purple);
+      color: var(--yellow);
+    }
+
+    .btn-itch {
+      background: #FA5C5C;
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    .btn-itch:hover {
+      background: #E03E3E;
+      color: var(--white);
+    }
+
+    .btn-sm {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-sm:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+
+    /* Sticky Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--ink);
+      border-bottom: 4px solid var(--yellow);
+      padding: 0.6rem 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .nav-brand img {
+      height: 40px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(2px 2px 0px var(--purple));
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-brand-title {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--yellow);
+      line-height: 1;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-brand-sub {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      color: var(--white);
+      letter-spacing: 2.5px;
+      opacity: 0.9;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.15s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: var(--yellow);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      padding: 0.35rem 0.6rem;
+      font-size: 1.25rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* Container Utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 1.5rem 3.5rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+    }
+
+    .hero-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .dossier-pill {
+      background: var(--ink);
+      color: var(--yellow);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.8rem;
+      letter-spacing: 2px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 .highlight {
+      background: var(--yellow);
+      padding: 0 0.4rem;
+      border: 3px solid var(--ink);
+      display: inline-block;
+      box-shadow: 4px 4px 0px var(--purple);
+      transform: rotate(-1deg);
+    }
+
+    .hero-tagline {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.35rem;
+      color: var(--gray-700);
+      line-height: 1.45;
+      margin-bottom: 2rem;
+      max-width: 620px;
+    }
+
+    .hero-tagline strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .badge-icon {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      border-top: var(--border-thin);
+      padding-top: 1.25rem;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-family: 'Epilogue', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Video Trailer Dossier Player */
+    .trailer-box {
+      background: var(--manila);
+      border: var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 1rem;
+      position: relative;
+    }
+
+    .trailer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px dashed var(--ink);
+      padding-bottom: 0.5rem;
+    }
+
+    .trailer-tab {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--red);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulseDot 1.5s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border: var(--border-thin);
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-overlay-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 20, 14, 0.45);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .video-overlay-play:hover {
+      background: rgba(26, 20, 14, 0.25);
+    }
+
+    .video-overlay-play.playing {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .play-circle {
+      width: 68px;
+      height: 68px;
+      background: var(--yellow);
+      border: 3.5px solid var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 4px 4px 0px var(--ink);
+      transition: transform 0.15s;
+    }
+
+    .play-circle:hover {
+      transform: scale(1.08);
+    }
+
+    .play-icon-tri {
+      width: 0;
+      height: 0;
+      border-top: 13px solid transparent;
+      border-bottom: 13px solid transparent;
+      border-left: 20px solid var(--ink);
+      margin-left: 4px;
+    }
+
+    .video-prompt-text {
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      background: var(--ink);
+      padding: 0.2rem 0.6rem;
+      border: 1.5px solid var(--yellow);
+    }
+
+    .video-controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.75rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .video-ctrl-btn {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      padding: 0.3rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 3px;
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+
+    .video-ctrl-btn:hover {
+      background: var(--yellow);
+    }
+
+    /* Section Headers */
+    .section-wrapper {
+      padding: 4.5rem 1.5rem;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-header .stamp {
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--gray-700);
+      font-family: 'Newsreader', serif;
+    }
+
+    /* 7 ROLES / CHARACTERS GRID */
+    .roles-section {
+      background: var(--cream-dark);
+      border-top: var(--border);
+      border-bottom: var(--border);
+    }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.75rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .role-card {
+      background: var(--white);
+      border: var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      padding: 1.25rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .role-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .role-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px dashed var(--gray-200);
+    }
+
+    .role-num {
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--gray-500);
+    }
+
+    .role-cost-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border: 1.5px solid var(--ink);
+      border-radius: 3px;
+      background: var(--cream);
+    }
+
+    .cost-free {
+      background: #DCFCE7;
+      color: #166534;
+    }
+
+    .cost-coins {
+      background: #FEF08A;
+      color: #854D0E;
+    }
+
+    .role-visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1.15;
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .role-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.3s ease;
+    }
+
+    .role-card:hover .role-visual img {
+      transform: scale(1.04);
+    }
+
+    .role-classified-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: var(--ink);
+      color: var(--yellow);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.65rem;
+      padding: 0.15rem 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .role-name {
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .role-ability {
+      font-family: 'Newsreader', serif;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+
+    .role-tactics {
+      background: var(--cream);
+      border-left: 3px solid var(--purple);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.85rem;
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--gray-700);
+      margin-top: auto;
+    }
+
+    .role-tactics strong {
+      color: var(--ink);
+    }
+
+    /* GAMEPLAY CAPTURES / SCREENSHOT GALLERY */
+    .screenshots-section {
+      background: var(--cream);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      background: var(--white);
+      border: var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .gallery-thumb-wrapper {
+      position: relative;
+      background: var(--ink);
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      border-bottom: var(--border-thin);
+    }
+
+    .gallery-thumb-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover .gallery-thumb-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .gallery-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border: 1.5px solid var(--ink);
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+
+    .gallery-info {
+      padding: 1.25rem;
+    }
+
+    .gallery-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-info p {
+      font-size: 0.95rem;
+      color: var(--gray-700);
+      font-family: 'Newsreader', serif;
+    }
+
+    /* HOW TO PLAY & FIELD MANUAL */
+    .field-manual-section {
+      background: var(--ink);
+      color: var(--white);
+      border-top: 4px solid var(--yellow);
+      border-bottom: 4px solid var(--yellow);
+    }
+
+    .field-manual-section h2, 
+    .field-manual-section h3 {
+      color: var(--white);
+    }
+
+    .field-manual-section .section-subtitle {
+      color: var(--gray-200);
+    }
+
+    .protocol-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      max-width: 1280px;
+      margin: 0 auto 3rem;
+    }
+
+    .protocol-card {
+      background: #251e17;
+      border: 3px solid var(--yellow);
+      padding: 1.5rem;
+      border-radius: var(--radius-sm);
+      position: relative;
+      box-shadow: 6px 6px 0px #000;
+    }
+
+    .protocol-step-num {
+      width: 48px;
+      height: 48px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--white);
+      margin-bottom: 1rem;
+      box-shadow: 3px 3px 0px var(--purple);
+    }
+
+    .protocol-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--yellow);
+    }
+
+    .protocol-card p {
+      font-size: 0.95rem;
+      color: #E2E8F0;
+      line-height: 1.5;
+    }
+
+    /* SPECIAL TACTICAL ACTIONS TABLE */
+    .tactical-table-box {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--white);
+      color: var(--ink);
+      border: var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 1.75rem;
+    }
+
+    .tactical-table-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tactical-table-box p {
+      color: var(--gray-700);
+      margin-bottom: 1.25rem;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table.tactical-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    table.tactical-table th {
+      background: var(--cream);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      padding: 0.75rem 1rem;
+      border-bottom: 2.5px solid var(--ink);
+      border-top: 1px solid var(--gray-200);
+      font-size: 0.85rem;
+    }
+
+    table.tactical-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+    }
+
+    table.tactical-table tr:hover td {
+      background: #FDF9F0;
+    }
+
+    /* DOWNLOAD / CONVERSION MATRIX */
+    .download-section {
+      background: var(--manila);
+      border-top: var(--border);
+      border-bottom: var(--border);
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .download-card {
+      background: var(--white);
+      border: var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .download-card.featured {
+      border-color: var(--ink);
+      background: #FFFDF9;
+    }
+
+    .download-card.featured::before {
+      content: "RECOMMENDED";
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      padding: 0.2rem 1rem;
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+
+    .download-badge-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius-sm);
+    }
+
+    .download-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .download-card p {
+      font-size: 1rem;
+      color: var(--gray-700);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .download-features-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 1.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      color: var(--gray-700);
+    }
+
+    .download-features-list li {
+      padding: 0.35rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .download-features-list li::before {
+      content: "✔";
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    /* FAQ SECTION */
+    .faq-section {
+      background: var(--cream);
+    }
+
+    .faq-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.25rem 1.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      background: var(--white);
+      transition: background 0.15s;
+    }
+
+    .faq-question:hover {
+      background: var(--cream);
+    }
+
+    .faq-chevron {
+      font-size: 1.25rem;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.25rem;
+      font-family: 'Newsreader', serif;
+      font-size: 1.05rem;
+      color: var(--gray-700);
+      line-height: 1.6;
+      border-top: 1px dashed var(--gray-200);
+      padding-top: 1rem;
+      display: none;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* PRIVACY & LEGAL SECTION */
+    .legal-section {
+      background: var(--white);
+      border-top: var(--border);
+      border-bottom: var(--border);
+    }
+
+    .legal-dossier {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--cream);
+      border: var(--border);
+      padding: 2.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .legal-dossier h3 {
+      font-size: 1.35rem;
+      margin: 1.5rem 0 0.5rem;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 0.35rem;
+    }
+
+    .legal-dossier p, .legal-dossier li {
+      font-family: 'Newsreader', serif;
+      font-size: 1.05rem;
+      color: var(--gray-700);
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-dossier ul {
+      padding-left: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: var(--white);
+      padding: 4rem 1.5rem 2.5rem;
+      border-top: 4px solid var(--yellow);
+    }
+
+    .footer-grid {
+      max-width: 1280px;
+      margin: 0 auto 3rem;
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .footer-about img {
+      height: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-about p {
+      color: var(--gray-200);
+      font-family: 'Newsreader', serif;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      max-width: 360px;
+    }
+
+    .footer-col h4 {
+      color: var(--yellow);
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-col a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      transition: color 0.15s;
+    }
+
+    .footer-col a:hover {
+      color: var(--yellow);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid #374151;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      color: #9CA3AF;
+    }
+
+    /* STICKY MOBILE DOWNLOAD BAR */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ink);
+      border-top: 3.5px solid var(--yellow);
+      padding: 0.75rem 1rem;
+      z-index: 9999;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+    }
+
+    .mobile-sticky-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .mobile-sticky-info {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .mobile-sticky-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      border: 1.5px solid var(--yellow);
+    }
+
+    .mobile-sticky-title {
+      color: var(--white);
+      font-family: 'Epilogue', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      line-height: 1.1;
+    }
+
+    .mobile-sticky-sub {
+      color: var(--yellow);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.5rem 1rem;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--ink);
+        flex-direction: column;
+        padding: 1.25rem 1.5rem;
+        gap: 0.75rem;
+        border-bottom: 4px solid var(--yellow);
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .nav-actions {
+        display: none;
+      }
+      .mobile-sticky-bar {
+        display: block;
+      }
+      body {
+        padding-bottom: 70px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="halftone-bg"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">
-                THE SYSTEM
-                <span>A GAME OF DECEPTION</span>
-            </a>
-            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
-            <ul class="nav-links">
-                <li><a href="#characters">CHARACTERS</a></li>
-                <li><a href="#how-to-play">HOW TO PLAY</a></li>
-                <li><a href="#privacy">PRIVACY</a></li>
-                <li><a href="https://play.google.com/store" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">GET THE APP</a></li>
-            </ul>
+  <!-- Tactile Background Overlays -->
+  <div class="halftone-bg" aria-hidden="true"></div>
+  <div class="paper-texture" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <nav aria-label="Main Navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <picture>
+          <source srcset="assets/img/branding/logo.webp" type="image/webp">
+          <img src="assets/img/branding/logo.png" alt="The System Logo" width="120" height="40">
+        </picture>
+        <div class="nav-brand-text">
+          <span class="nav-brand-title">THE SYSTEM</span>
+          <span class="nav-brand-sub">A GAME OF DECEPTION</span>
         </div>
-    </nav>
+      </a>
 
-    <!-- Hero Section -->
-    <section class="hero">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#trailer">Trailer</a></li>
+        <li><a href="#roles">7 Roles</a></li>
+        <li><a href="#gallery">Game Captures</a></li>
+        <li><a href="#rules">Field Manual</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#downloads">Download</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.the356company.the_system" 
+           class="btn btn-primary btn-sm" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           id="navPlayStoreBtn">
+          <!-- Google Play Icon -->
+          <svg class="badge-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a1.95 1.95 0 0 1-.36-.612V2.426c.09-.232.215-.444.36-.612zM15.207 13.414l2.585 2.586-12.75 7.362 10.165-9.948zM18.868 9.757l2.84 1.64c.78.45.78 1.19 0 1.64l-2.84 1.64-2.247-2.247 2.247-2.247zM5.042.638l12.75 7.362-2.585 2.586L5.042.638z"/>
+          </svg>
+          Google Play
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="hero-grid">
+        
+        <!-- Left Hero Copy -->
         <div class="hero-content">
-            <div class="hero-badge label">CLASSIFIED DOCUMENT</div>
-            <h1>THE <span class="accent">SYSTEM</span></h1>
-            <p class="hero-tagline">In a world where information is currency and trust is a weapon, you are an operative with a secret identity. Deceive. Survive. Subvert.</p>
-            <div class="hero-buttons">
-                <a href="https://play.google.com/store" class="btn btn-primary">▶ PLAY NOW</a>
-                <a href="#how-to-play" class="btn btn-secondary">? HOW TO PLAY</a>
+          <div class="hero-meta-bar">
+            <span class="dossier-pill">TOP SECRET // DOSSIER #356</span>
+            <span class="stamp">CLASSIFIED</span>
+            <span class="stamp stamp-yellow">INSPIRED BY EL MEKINA</span>
+          </div>
+
+          <h1>
+            TRUST NO ONE.<br>
+            <span class="highlight">DECEIVE.</span> SURVIVE.
+          </h1>
+
+          <p class="hero-tagline">
+            In a world where information is currency and trust is a weapon, you are an operative holding 
+            <strong>secret identity cards</strong>. Claim roles you don't have. Fake abilities. Call out your friends' lies before they eliminate you.
+          </p>
+
+          <div class="hero-cta-group">
+            <!-- Primary Google Play Button -->
+            <a href="https://play.google.com/store/apps/details?id=com.the356company.the_system" 
+               class="btn btn-playstore" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               id="heroPlayStoreCTA">
+              <svg class="badge-icon" viewBox="0 0 24 24" fill="#3DDC84">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.95 1.95 0 0 1-.36-.612V2.426c.09-.232.215-.444.36-.612zM15.207 13.414l2.585 2.586-12.75 7.362 10.165-9.948zM18.868 9.757l2.84 1.64c.78.45.78 1.19 0 1.64l-2.84 1.64-2.247-2.247 2.247-2.247zM5.042.638l12.75 7.362-2.585 2.586L5.042.638z"/>
+              </svg>
+              GET ON GOOGLE PLAY
+            </a>
+
+            <!-- Itch.io Game Link -->
+            <a href="https://youssef356.itch.io/the-system-card-game" 
+               class="btn btn-itch" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               id="heroItchCTA">
+              <!-- Itch.io SVG -->
+              <svg class="badge-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.5 4v1.8c.2.2.4.4.7.4.4 0 .8-.3 1.1-.6.3.4.8.7 1.3.7.5 0 1-.3 1.3-.7.3.4.8.7 1.3.7.5 0 1-.3 1.3-.7.3.4.8.7 1.3.7.5 0 1-.3 1.3-.7.3.4.7.6 1.1.6.3 0 .5-.2.7-.4V4H2.5zm-.5 3.5v9.8c0 1.5 1.2 2.7 2.7 2.7h14.6c1.5 0 2.7-1.2 2.7-2.7V7.5c-.3.1-.7.2-1.1.2-.8 0-1.5-.4-1.9-1-.4.6-1.1 1-1.9 1s-1.5-.4-1.9-1c-.4.6-1.1 1-1.9 1s-1.5-.4-1.9-1c-.4.6-1.1 1-1.9 1s-1.5-.4-1.9-1c-.4.6-1.1 1-1.9 1-.4 0-.8-.1-1.1-.2zM7.5 9h2v2h-2V9zm7 0h2v2h-2V9zm-5 4h5v2h-5v-2z"/>
+              </svg>
+              PLAY ON ITCH.IO
+            </a>
+
+            <!-- Field Manual Anchor -->
+            <a href="#rules" class="btn btn-secondary">
+              📖 FIELD MANUAL
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">2 – 8</span>
+              <span class="stat-label">Players Local</span>
             </div>
+            <div class="stat-item">
+              <span class="stat-num">7</span>
+              <span class="stat-label">Secret Roles</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Offline Ready</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">1v1 ELO</span>
+              <span class="stat-label">Online Ranking</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Right Hero Trailer Dossier Box -->
+        <div class="hero-media" id="trailer">
+          <div class="trailer-box">
+            <div class="trailer-header">
+              <div class="trailer-tab">
+                <span class="status-dot"></span>
+                <span>OPERATIONAL TRAILER // FEED #15S</span>
+              </div>
+              <span class="stamp stamp-sm" style="font-size:0.75rem; transform: rotate(2deg);">EVIDENCE FILE</span>
+            </div>
+
+            <!-- HTML5 Game Trailer Video Player -->
+            <div class="video-container" id="videoWrapper">
+              <video id="gameTrailer" 
+                     preload="metadata" 
+                     playsinline 
+                     loop 
+                     poster="assets/video/trailer_poster.jpg">
+                <source src="assets/video/the_system_trailer.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+
+              <!-- Custom Vintage Play Overlay -->
+              <div class="video-overlay-play" id="videoOverlay" onclick="togglePlayTrailer()">
+                <div class="play-circle">
+                  <div class="play-icon-tri"></div>
+                </div>
+                <div class="video-prompt-text">▶ WATCH OFFICIAL TRAILER (1080P)</div>
+              </div>
+            </div>
+
+            <!-- Video Controls Bar -->
+            <div class="video-controls-bar">
+              <span style="color: var(--gray-700);">AUDIO: MASTERED 128 BPM</span>
+              <div style="display: flex; gap: 0.5rem;">
+                <button class="video-ctrl-btn" onclick="toggleMuteTrailer()" id="muteBtn" title="Toggle Sound">🔊 SOUND ON</button>
+                <button class="video-ctrl-btn" onclick="toggleFullscreenTrailer()" title="Full Screen">⛶ EXPAND</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Characters Section -->
-    <section class="section" id="characters">
-        <div class="section-header">
-            <div class="section-badge label">CLASSIFIED</div>
-            <h2>OPERATIVE IDENTITIES</h2>
-            <p style="color: var(--grey-500); margin-top: 0.5rem;">Claim these roles to use their abilities. Others can challenge you!</p>
+    <!-- ROLES DOSSIER SECTION -->
+    <section class="section-wrapper roles-section" id="roles">
+      <div class="container">
+        <header class="section-header">
+          <div class="stamp stamp-lg">CONFIDENTIAL DOSSIER</div>
+          <h2 class="section-title">THE 7 SECRET IDENTITIES</h2>
+          <p class="section-subtitle">
+            Every round, operatives hold secret role cards. You can claim any ability at any time. 
+            Will your rivals let you get away with it, or call your bluff?
+          </p>
+        </header>
+
+        <div class="roles-grid">
+
+          <!-- 1. BUSINESSMAN -->
+          <article class="role-card">
+            <div class="role-card-top">
+              <span class="role-num">#01</span>
+              <span class="role-cost-tag cost-free">FREE ABILITY</span>
+            </div>
+            <div class="role-visual">
+              <picture>
+                <source srcset="assets/img/characters/businessman.webp" type="image/webp">
+                <img src="assets/img/characters/businessman.png" alt="Businessman Card Character Portrait" loading="lazy" width="300" height="350">
+              </picture>
+              <span class="role-classified-badge">UNSTOPPABLE PROFIT</span>
+            </div>
+            <h3 class="role-name">BUSINESSMAN</h3>
+            <p class="role-ability">
+              Take <strong>4 coins</strong> straight from the central bank. This ability cannot be blocked by standard defenses.
+            </p>
+            <div class="role-tactics">
+              <strong>Tactical Note:</strong> Hoard coins quickly to reach the 7-Kill protocol, but watch out for greedy Taxmen!
+            </div>
+          </article>
+
+          <!-- 2. TAXMAN -->
+          <article class="role-card">
+            <div class="role-card-top">
+              <span class="role-num">#02</span>
+              <span class="role-cost-tag cost-free">FREE ABILITY</span>
+            </div>
+            <div class="role-visual">
+              <picture>
+                <source srcset="assets/img/characters/taxman.webp" type="image/webp">
+                <img src="assets/img/characters/taxman.png" alt="Taxman Card Character Portrait" loading="lazy" width="300" height="350">
+              </picture>
+              <span class="role-classified-badge">ECONOMIC CONTROL</span>
+            </div>
+            <h3 class="role-name">TAXMAN</h3>
+            <p class="role-ability">
+              Taxes all wealthy players with <strong>7+ coins</strong> (takes 1 from each). Can also <strong>block Support actions</strong> (+2) from the bank.
+            </p>
+            <div class="role-tactics">
+              <strong>Tactical Note:</strong> Keep rivals starved of coins so they can never afford assassination strikes.
+            </div>
+          </article>
+
+          <!-- 3. ASSASSIN -->
+          <article class="role-card">
+            <div class="role-card-top">
+              <span class="role-num">#03</span>
+              <span class="role-cost-tag cost-coins">COSTS 3 COINS</span>
+            </div>
+            <div class="role-visual">
+              <picture>
+                <source srcset="assets/img/characters/assassin.webp" type="image/webp">
+                <img src="assets/img/characters/assassin.png" alt="Assassin Card Character Portrait" loading="lazy" width="300" height="350">
+              </picture>
+              <span class="role-classified-badge">LETHAL STRIKE</span>
+            </div>
+            <h3 class="role-name">ASSASSIN</h3>
+            <p class="role-ability">
+              Pay 3 coins to launch an assassination against any operative. Target must permanently discard one alive identity card.
+            </p>
+            <div class="role-tactics">
+              <strong>Tactical Note:</strong> Vulnerable to Marshal counter-claims. Time your hit when rivals are low on defensive bluffs.
+            </div>
+          </article>
+
+          <!-- 4. MARSHAL -->
+          <article class="role-card">
+            <div class="role-card-top">
+              <span class="role-num">#04</span>
+              <span class="role-cost-tag cost-coins">COSTS 4 COINS</span>
+            </div>
+            <div class="role-visual">
+              <picture>
+                <source srcset="assets/img/characters/marshal.webp" type="image/webp">
+                <img src="assets/img/characters/marshal.png" alt="Marshal Card Character Portrait" loading="lazy" width="300" height="350">
+              </picture>
+              <span class="role-classified-badge">INTERROGATOR</span>
+            </div>
+            <h3 class="role-name">MARSHAL</h3>
+            <p class="role-ability">
+              Pay 4 coins to interrogate a rival and guess their role. If you guess right, they lose a card. Guess wrong, they take your coins!
+            </p>
+            <div class="role-tactics">
+              <strong>Tactical Note:</strong> Counters Assassins! Use behavioral deduction and previous claim patterns to nail targets.
+            </div>
+          </article>
+
+          <!-- 5. DETECTIVE -->
+          <article class="role-card">
+            <div class="role-card-top">
+              <span class="role-num">#05</span>
+              <span class="role-cost-tag cost-free">FREE ABILITY</span>
+            </div>
+            <div class="role-visual">
+              <picture>
+                <source srcset="assets/img/characters/detective.webp" type="image/webp">
+                <img src="assets/img/characters/detective.png" alt="Detective Card Character Portrait" loading="lazy" width="300" height="350">
+              </picture>
+              <span class="role-classified-badge">ESPIONAGE</span>
+            </div>
+            <h3 class="role-name">DETECTIVE</h3>
+            <p class="role-ability">
+              Secretly peek at one of a target's cards. You may choose to swap it with one of yours to steal their best weapon.
+            </p>
+            <div class="role-tactics">
+              <strong>Tactical Note:</strong> Information is lethal. Knowing what someone has makes their bluffs effortless to crush.
+            </div>
+          </article>
+
+          <!-- 6. POLITICIAN -->
+          <article class="role-card">
+            <div class="role-card-top">
+              <span class="role-num">#06</span>
+              <span class="role-cost-tag cost-free">FREE ABILITY</span>
+            </div>
+            <div class="role-visual">
+              <picture>
+                <source srcset="assets/img/characters/politician.webp" type="image/webp">
+                <img src="assets/img/characters/politician.jpg" alt="Politician Card Character Portrait" loading="lazy" width="300" height="350">
+              </picture>
+              <span class="role-classified-badge">SHUFFLE & RESET</span>
+            </div>
+            <h3 class="role-name">POLITICIAN</h3>
+            <p class="role-ability">
+              Discard all your active cards into the deck and draw completely fresh identities. Resets your profile when cornered.
+            </p>
+            <div class="role-tactics">
+              <strong>Tactical Note:</strong> When everyone thinks they know your hand, a Politician swap shatters their entire plan.
+            </div>
+          </article>
+
+          <!-- 7. THIEF -->
+          <article class="role-card">
+            <div class="role-card-top">
+              <span class="role-num">#07</span>
+              <span class="role-cost-tag cost-free">FREE ABILITY</span>
+            </div>
+            <div class="role-visual">
+              <picture>
+                <source srcset="assets/img/characters/thief.webp" type="image/webp">
+                <img src="assets/img/characters/thief.png" alt="Thief Card Character Portrait" loading="lazy" width="300" height="350">
+              </picture>
+              <span class="role-classified-badge">PICKPOCKET</span>
+            </div>
+            <h3 class="role-name">THIEF</h3>
+            <p class="role-ability">
+              Steal up to <strong>2 coins</strong> from any operative. Only another claimed Thief can counter and stop the robbery.
+            </p>
+            <div class="role-tactics">
+              <strong>Tactical Note:</strong> Punish opponents who are saving up for big kills, while fueling your own bank.
+            </div>
+          </article>
+
+          <!-- CARD BACK / DOSSIER SUMMARY -->
+          <article class="role-card" style="background: var(--manila);">
+            <div class="role-card-top">
+              <span class="role-num">CORE</span>
+              <span class="role-cost-tag cost-coins">CLASSIFIED DECK</span>
+            </div>
+            <div class="role-visual">
+              <picture>
+                <source srcset="assets/img/characters/card_back.webp" type="image/webp">
+                <img src="assets/img/characters/card_back.png" alt="The System Card Back Artwork" loading="lazy" width="300" height="350">
+              </picture>
+              <span class="role-classified-badge">3 CARDS PER PLAYER</span>
+            </div>
+            <h3 class="role-name">THE DECK</h3>
+            <p class="role-ability">
+              Every player starts with 3 hidden cards. If you lose all 3 cards to challenges or assassinations, you are eliminated!
+            </p>
+            <div class="role-tactics">
+              <strong>Victory:</strong> Last operative standing with at least 1 card in hand wins the game.
+            </div>
+          </article>
+
         </div>
-        <div class="characters-grid">
-            <div class="character-card">
-                <div class="character-header">
-                    <div class="character-icon" style="background: #FFD700;">💰</div>
-                    <div>
-                        <h3>BUSINESSMAN</h3>
-                        <div class="character-cost">FREE ABILITY</div>
-                    </div>
-                </div>
-                <p class="character-desc">Take 4 coins from the bank. Cannot be blocked or challenged.</p>
-            </div>
-
-            <div class="character-card">
-                <div class="character-header">
-                    <div class="character-icon" style="background: #15803D;">📊</div>
-                    <div>
-                        <h3>TAXMAN</h3>
-                        <div class="character-cost">FREE ABILITY</div>
-                    </div>
-                </div>
-                <p class="character-desc">Tax all players with 7+ coins (takes 1 from each). Can block Support from Bank.</p>
-            </div>
-
-            <div class="character-card">
-                <div class="character-header">
-                    <div class="character-icon" style="background: #EF4444;">💣</div>
-                    <div>
-                        <h3>ASSASSIN</h3>
-                        <div class="character-cost">COSTS 3 COINS</div>
-                    </div>
-                </div>
-                <p class="character-desc">Pay 3 coins to eliminate one card from any player. Target must discard a card.</p>
-            </div>
-
-            <div class="character-card">
-                <div class="character-header">
-                    <div class="character-icon" style="background: #22C55E;">🎯</div>
-                    <div>
-                        <h3>MARSHAL</h3>
-                        <div class="character-cost">COSTS 4 COINS</div>
-                    </div>
-                </div>
-                <p class="character-desc">Pay 4 coins to guess a player's role. If correct, they lose a card.</p>
-            </div>
-
-            <div class="character-card">
-                <div class="character-header">
-                    <div class="character-icon" style="background: #3B82F6;">🔍</div>
-                    <div>
-                        <h3>INSPECTOR</h3>
-                        <div class="character-cost">FREE ABILITY</div>
-                    </div>
-                </div>
-                <p class="character-desc">Peek at one of a target's cards. You may choose to swap with one of yours.</p>
-            </div>
-
-            <div class="character-card">
-                <div class="character-header">
-                    <div class="character-icon" style="background: #9333EA;">🔄</div>
-                    <div>
-                        <h3>POLITICIEN</h3>
-                        <div class="character-cost">FREE ABILITY</div>
-                    </div>
-                </div>
-                <p class="character-desc">Discard all your alive cards and draw new ones from the deck.</p>
-            </div>
-
-            <div class="character-card">
-                <div class="character-header">
-                    <div class="character-icon" style="background: #F97316;">🪙</div>
-                    <div>
-                        <h3>THIEF</h3>
-                        <div class="character-cost">FREE ABILITY</div>
-                    </div>
-                </div>
-                <p class="character-desc">Steal up to 3 coins from any player. Cannot be blocked.</p>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- How to Play -->
-    <section class="section how-to-play" id="how-to-play">
-        <div class="section-header">
-            <div class="section-badge label">FIELD MANUAL</div>
-            <h2>HOW TO PLAY</h2>
+    <!-- REAL GAME CAPTURES GALLERY -->
+    <section class="section-wrapper screenshots-section" id="gallery">
+      <div class="container">
+        <header class="section-header">
+          <div class="stamp">DIRECT IN-GAME CAPTURES</div>
+          <h2 class="section-title">SEE THE SYSTEM IN ACTION</h2>
+          <p class="section-subtitle">
+            Authentic screenshots straight from the Android build: tactile noir boards, secret card reveals, 
+            rapid-fire challenge countdowns, and pass-and-play party setup.
+          </p>
+        </header>
+
+        <!-- Gallery Showcase Grid -->
+        <div class="gallery-grid">
+
+          <!-- 1. Operations Center Board -->
+          <div class="gallery-item">
+            <div class="gallery-thumb-wrapper">
+              <span class="gallery-tag">GAMEPLAY BOARD</span>
+              <picture>
+                <source srcset="assets/img/screenshots/showcase_board.webp" type="image/webp">
+                <img src="assets/img/screenshots/showcase_board.png" alt="The System Operations Center Main Board Gameplay" loading="lazy" width="600" height="375">
+              </picture>
+            </div>
+            <div class="gallery-info">
+              <h3>Tactical Operations Center</h3>
+              <p>Intuitive board showing coin banks, alive operative status, current turn actions, and active protocol counters.</p>
+            </div>
+          </div>
+
+          <!-- 2. Cards Reveal & Identity Check -->
+          <div class="gallery-item">
+            <div class="gallery-thumb-wrapper">
+              <span class="gallery-tag">SECRET CARDS</span>
+              <picture>
+                <source srcset="assets/img/screenshots/screen_cards_reveal.webp" type="image/webp">
+                <img src="assets/img/screenshots/screen_cards_reveal.png" alt="Secret Identity Cards Reveal Screen" loading="lazy" width="600" height="375">
+              </picture>
+            </div>
+            <div class="gallery-info">
+              <h3>Covert Identity Reveal</h3>
+              <p>Peek at your 3 role cards discreetly before passing the device to the next player. Keep your poker face solid.</p>
+            </div>
+          </div>
+
+          <!-- 3. Character Picking & Action Select -->
+          <div class="gallery-item">
+            <div class="gallery-thumb-wrapper">
+              <span class="gallery-tag">ROLE CLAIM</span>
+              <picture>
+                <source srcset="assets/img/screenshots/screen_character_selection.webp" type="image/webp">
+                <img src="assets/img/screenshots/screen_character_selection.png" alt="Character Role Selection Interface" loading="lazy" width="600" height="375">
+              </picture>
+            </div>
+            <div class="gallery-info">
+              <h3>Claim Any Role — Even If Lying</h3>
+              <p>Pick from all 7 roles during your turn. The system won't verify your hand—only your friends can call you out!</p>
+            </div>
+          </div>
+
+          <!-- 4. Protocol Resolution & Challenge Timer -->
+          <div class="gallery-item">
+            <div class="gallery-thumb-wrapper">
+              <span class="gallery-tag">LIAR CHALLENGE</span>
+              <picture>
+                <source srcset="assets/img/screenshots/screen_protocol_resolution.webp" type="image/webp">
+                <img src="assets/img/screenshots/screen_protocol_resolution.png" alt="Protocol Resolution and Challenge Screen" loading="lazy" width="600" height="375">
+              </picture>
+            </div>
+            <div class="gallery-info">
+              <h3>20-Second Challenge Window</h3>
+              <p>When an operative claims an ability, anyone can slam the "LIAR!" button. Wrong challenges result in losing a card.</p>
+            </div>
+          </div>
+
+          <!-- 5. Pass-and-Play Setup (2 to 8 Players) -->
+          <div class="gallery-item">
+            <div class="gallery-thumb-wrapper">
+              <span class="gallery-tag">LOCAL PARTY</span>
+              <picture>
+                <source srcset="assets/img/screenshots/screen_player_setup.webp" type="image/webp">
+                <img src="assets/img/screenshots/screen_player_setup.png" alt="Pass and Play Player Selection Menu" loading="lazy" width="600" height="375">
+              </picture>
+            </div>
+            <div class="gallery-info">
+              <h3>Pass & Play on One Device</h3>
+              <p>Gather 2 to 8 friends around a single phone or tablet. No cards, tokens, or Wi-Fi required—just deception.</p>
+            </div>
+          </div>
+
+          <!-- 6. In-Game Field Manual Reference -->
+          <div class="gallery-item">
+            <div class="gallery-thumb-wrapper">
+              <span class="gallery-tag">FIELD MANUAL</span>
+              <picture>
+                <source srcset="assets/img/screenshots/screen_field_manual.webp" type="image/webp">
+                <img src="assets/img/screenshots/screen_field_manual.png" alt="In-game Field Manual and Rules Reference" loading="lazy" width="600" height="375">
+              </picture>
+            </div>
+            <div class="gallery-info">
+              <h3>Built-In Field Manual</h3>
+              <p>Instant in-game access to character abilities, costs, counters, and advanced protocols so new operatives learn in 2 minutes.</p>
+            </div>
+          </div>
+
         </div>
-        <div class="steps-grid">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>GATHER OPERATIVES</h3>
-                <p>Gather 2-9 players around one device. Each player receives 2-3 secret identity cards.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>TAKE YOUR TURN</h3>
-                <p>On your turn, choose an action: collect income, claim a role, or use special abilities.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>BLUFF OR CHALLENGE</h3>
-                <p>Anyone can yell "LIAR!" to challenge a claim. But if they're wrong, they lose a card!</p>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>SURVIVE</h3>
-                <p>Be the last operative standing with at least one identity card still in play.</p>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <h2>READY TO DECEIVE?</h2>
-        <p>Download The System now and prove you can outsmart your friends. Free to play. No internet required.</p>
-        <a href="https://play.google.com/store" class="btn btn-primary">▶ DOWNLOAD FREE</a>
+    <!-- FIELD MANUAL & GAMEPLAY RULES -->
+    <section class="section-wrapper field-manual-section" id="rules">
+      <div class="container">
+        <header class="section-header">
+          <div class="stamp stamp-lg stamp-yellow">OFFICIAL FIELD MANUAL</div>
+          <h2 class="section-title">HOW TO PLAY THE SYSTEM</h2>
+          <p class="section-subtitle">
+            Master the rules of deceit. Learn how every round unfolds from dealing to final elimination.
+          </p>
+        </header>
+
+        <!-- 4 Steps -->
+        <div class="protocol-steps">
+          
+          <div class="protocol-card">
+            <div class="protocol-step-num">01</div>
+            <h3>SETUP & ROLES</h3>
+            <p>2 to 8 operatives gather around one phone. Everyone secretly checks their 3 dealt role cards. Coins are pooled in the bank.</p>
+          </div>
+
+          <div class="protocol-card">
+            <div class="protocol-step-num">02</div>
+            <h3>TAKE ACTION</h3>
+            <p>On your turn, choose: take Income (+1), Support (+2), claim a role's ability (like Taxman or Assassin), or launch a strike.</p>
+          </div>
+
+          <div class="protocol-card">
+            <div class="protocol-step-num">03</div>
+            <h3>BLUFF OR CHALLENGE</h3>
+            <p>You can claim any role even if you don't hold it. The challenge countdown starts: rivals can call "LIAR!" or let your claim pass.</p>
+          </div>
+
+          <div class="protocol-card">
+            <div class="protocol-step-num">04</div>
+            <h3>CARD ELIMINATION</h3>
+            <p>If caught lying, you discard an alive card. If the challenger was wrong, THEY lose a card. Be the last operative alive to win!</p>
+          </div>
+
+        </div>
+
+        <!-- SPECIAL ACTIONS TABLE -->
+        <div class="tactical-table-box">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem; flex-wrap:wrap; gap: 0.5rem;">
+            <h3>ADVANCED STRATEGIC ACTIONS</h3>
+            <span class="stamp stamp-sm">TACTICAL DIRECTIVE</span>
+          </div>
+          <p>Beyond standard character claims, operatives can execute these game-changing financial and defensive actions:</p>
+          
+          <div class="table-responsive">
+            <table class="tactical-table" aria-label="Tactical Game Actions Table">
+              <thead>
+                <tr>
+                  <th>ACTION</th>
+                  <th>COIN COST</th>
+                  <th>EFFECT</th>
+                  <th>COUNTER / DEFENSE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Income</strong></td>
+                  <td>Free</td>
+                  <td>Take 1 safe coin from the bank. Cannot be blocked or challenged.</td>
+                  <td>None (Unstoppable)</td>
+                </tr>
+                <tr>
+                  <td><strong>Support</strong></td>
+                  <td>Free</td>
+                  <td>Take 2 coins from the bank. High risk, high reward.</td>
+                  <td>Taxman can claim to BLOCK Support</td>
+                </tr>
+                <tr>
+                  <td><strong>7-Kill Strike</strong></td>
+                  <td>7 Coins</td>
+                  <td>Force any chosen opponent to immediately lose one alive card.</td>
+                  <td>Can be countered by paying 9 coins</td>
+                </tr>
+                <tr>
+                  <td><strong>Nine Shield</strong></td>
+                  <td>9 Coins</td>
+                  <td>Purchase permanent tactical armor that absorbs one incoming elimination strike.</td>
+                  <td>None (Absorbs hit)</td>
+                </tr>
+                <tr>
+                  <td><strong>Challenge (Call "LIAR!")</strong></td>
+                  <td>Free</td>
+                  <td>Trigger a card check. Caught liar loses 1 card; false accuser loses 1 card.</td>
+                  <td>Show true card to punish accuser</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Privacy Policy Section -->
-    <section class="section" id="privacy">
-        <div class="section-header">
-            <div class="section-badge label">LEGAL</div>
-            <h2>PRIVACY POLICY</h2>
-            <p style="color: var(--grey-500);">Last Updated: August 9, 2026</p>
+    <!-- DOWNLOAD / STORE REDIRECT SECTION -->
+    <section class="section-wrapper download-section" id="downloads">
+      <div class="container">
+        <header class="section-header">
+          <div class="stamp stamp-lg">JOIN THE UNDERGROUND</div>
+          <h2 class="section-title">DOWNLOAD THE SYSTEM NOW</h2>
+          <p class="section-subtitle">
+            Free to play. No pay-to-win mechanics. Pure psychological warfare and tactical deduction.
+          </p>
+        </header>
+
+        <div class="download-grid">
+          
+          <!-- GOOGLE PLAY CARD -->
+          <div class="download-card featured">
+            <div class="download-badge-icon">
+              <!-- Android / Google Play SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="#0284C7">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a1.95 1.95 0 0 1-.36-.612V2.426c.09-.232.215-.444.36-.612zM15.207 13.414l2.585 2.586-12.75 7.362 10.165-9.948zM18.868 9.757l2.84 1.64c.78.45.78 1.19 0 1.64l-2.84 1.64-2.247-2.247 2.247-2.247zM5.042.638l12.75 7.362-2.585 2.586L5.042.638z"/>
+              </svg>
+            </div>
+            <h3>Google Play Store</h3>
+            <p>Official release for all Android smartphones and tablets running Android 5.0 and above.</p>
+            
+            <ul class="download-features-list">
+              <li>Auto-updates and latest bug fixes</li>
+              <li>Google Play Achievements & Leaderboards</li>
+              <li>Online multiplayer 1v1 matchmaking</li>
+              <li>Instant 1-click install</li>
+            </ul>
+
+            <a href="https://play.google.com/store/apps/details?id=com.the356company.the_system" 
+               class="btn btn-primary" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               id="directPlayStoreDownload">
+              ▶ GET IT ON GOOGLE PLAY
+            </a>
+          </div>
+
+          <!-- ITCH.IO CARD -->
+          <div class="download-card">
+            <div class="download-badge-icon">
+              <!-- Itch.io Red SVG -->
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="#FA5C5C">
+                <path d="M2.5 4v1.8c.2.2.4.4.7.4.4 0 .8-.3 1.1-.6.3.4.8.7 1.3.7.5 0 1-.3 1.3-.7.3.4.8.7 1.3.7.5 0 1-.3 1.3-.7.3.4.8.7 1.3.7.5 0 1-.3 1.3-.7.3.4.7.6 1.1.6.3 0 .5-.2.7-.4V4H2.5zm-.5 3.5v9.8c0 1.5 1.2 2.7 2.7 2.7h14.6c1.5 0 2.7-1.2 2.7-2.7V7.5c-.3.1-.7.2-1.1.2-.8 0-1.5-.4-1.9-1-.4.6-1.1 1-1.9 1s-1.5-.4-1.9-1c-.4.6-1.1 1-1.9 1s-1.5-.4-1.9-1c-.4.6-1.1 1-1.9 1s-1.5-.4-1.9-1c-.4.6-1.1 1-1.9 1-.4 0-.8-.1-1.1-.2zM7.5 9h2v2h-2V9zm7 0h2v2h-2V9zm-5 4h5v2h-5v-2z"/>
+              </svg>
+            </div>
+            <h3>Itch.io by The 356 Developper</h3>
+            <p>Direct Android APK release & PC standalone on Itch.io. Sideload directly without Play Store services.</p>
+            
+            <ul class="download-features-list">
+              <li>Direct APK download file</li>
+              <li>DRM-free indie release</li>
+              <li>Developer commentary & community forum</li>
+              <li>100% offline standalone package</li>
+            </ul>
+
+            <a href="https://youssef356.itch.io/the-system-card-game" 
+               class="btn btn-itch" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               id="directItchDownload">
+              ★ GET ON ITCH.IO
+            </a>
+          </div>
+
         </div>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <div class="character-card" style="margin-bottom: 1.5rem;">
-                <h3 style="margin-bottom: 1rem;">INTRODUCTION</h3>
-                <p class="character-desc" style="color: var(--black);">Welcome to "The System: Bluffing Game" ("the App"). This privacy policy explains how The356Company ("we", "us", or "our") handles information when you use our mobile application.</p>
-            </div>
-
-            <div class="character-card" style="margin-bottom: 1.5rem;">
-                <h3 style="margin-bottom: 1rem;">INFORMATION WE COLLECT</h3>
-                <p class="character-desc" style="color: var(--black);">The App is designed as a local multiplayer game that operates entirely on your device. We do NOT collect, store, or transmit any personal information, including:</p>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--grey-500); font-size: 0.9rem;">
-                    <li>Player names you enter (stored only in device memory during gameplay)</li>
-                    <li>Game progress or history</li>
-                    <li>Device information</li>
-                    <li>Location data</li>
-                    <li>Contacts or other personal data</li>
-                </ul>
-            </div>
-
-            <div class="character-card" style="margin-bottom: 1.5rem;">
-                <h3 style="margin-bottom: 1rem;">ADVERTISING</h3>
-                <p class="character-desc" style="color: var(--black);">The App may display advertisements provided by Google AdMob. AdMob may collect:</p>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--grey-500); font-size: 0.9rem;">
-                    <li>Advertising ID</li>
-                    <li>Device type and model</li>
-                    <li>Operating system version</li>
-                    <li>Network information</li>
-                </ul>
-                <p class="character-desc" style="color: var(--black); margin-top: 0.5rem;">This data is collected by Google and is subject to Google's Privacy Policy. We do not have access to or control over this data.</p>
-            </div>
-
-            <div class="character-card" style="margin-bottom: 1.5rem;">
-                <h3 style="margin-bottom: 1rem;">CHILDREN'S PRIVACY</h3>
-                <p class="character-desc" style="color: var(--black);">The App is suitable for all ages. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
-            </div>
-
-            <div class="character-card" style="margin-bottom: 1.5rem;">
-                <h3 style="margin-bottom: 1rem;">CHANGES TO THIS POLICY</h3>
-                <p class="character-desc" style="color: var(--black);">We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy within the App.</p>
-            </div>
-
-            <div class="character-card" style="margin-bottom: 1.5rem;">
-                <h3 style="margin-bottom: 1rem;">CONTACT US</h3>
-                <p class="character-desc" style="color: var(--black);">If you have questions about this privacy policy, please contact us at:<br><strong>nejiyoussef081@gmail.com</strong></p>
-            </div>
-
-            <div class="character-card" style="margin-bottom: 1.5rem;">
-                <h3 style="margin-bottom: 1rem;">CONTENT RATING</h3>
-                <p class="character-desc" style="color: var(--black);">This app is rated "Everyone" by the Entertainment Software Rating Board (ESRB) and suitable for all ages.</p>
-                <ul style="margin-top: 0.5rem; padding-left: 1.5rem; color: var(--grey-500); font-size: 0.9rem;">
-                    <li>Fantasy Violence (mild, non-graphic)</li>
-                    <li>No real gambling or real-money transactions</li>
-                    <li>No online interaction</li>
-                    <li>No user-generated content</li>
-                </ul>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>THE SYSTEM</h4>
-                <p>A bluffing card game for 2-9 players. Deceive your friends. Be the last one standing.</p>
+    <!-- FAQ SECTION (SEO & AI Search Discovery Boost) -->
+    <section class="section-wrapper faq-section" id="faq">
+      <div class="container">
+        <header class="section-header">
+          <div class="stamp stamp-lg">DEBRIEFING & INTEL</div>
+          <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+          <p class="section-subtitle">Everything you need to know about gameplay, offline modes, and rules.</p>
+        </header>
+
+        <div class="faq-container">
+          
+          <div class="faq-item open">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>What is The System and how does it play?</span>
+              <span class="faq-chevron">▼</span>
             </div>
-            <div class="footer-section">
-                <h4>QUICK LINKS</h4>
-                <a href="#characters">Characters</a>
-                <a href="#how-to-play">How to Play</a>
-                <a href="#privacy">Privacy Policy</a>
-                <a href="https://play.google.com/store">Get the App</a>
+            <div class="faq-answer">
+              The System is a social deduction bluffing card game for 2 to 8 players inspired by the classic Tunisian card game <strong>El Mekina</strong>. Every operative receives secret identity cards from a deck containing 7 unique roles. On your turn, you claim any role and trigger its ability—regardless of whether you actually have that card in your hand. Other operatives have a countdown window to challenge your claim by yelling "LIAR!". Caught liars lose an identity card, while false accusers also lose a card. The last player with cards remaining wins.
             </div>
-            <div class="footer-section">
-                <h4>CONTACT</h4>
-                <p>nejiyoussef081@gmail.com</p>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Can I play with my friends on a single phone without Wi-Fi?</span>
+              <span class="faq-chevron">▼</span>
             </div>
+            <div class="faq-answer">
+              Yes! The core feature of The System is <strong>Local Pass-and-Play (2–8 players)</strong>. You only need one smartphone or tablet passed around the group. The app hides secret cards behind private reveal buttons so no one sees each other's hand. It requires zero internet connection, making it perfect for road trips, parties, flights, and game nights.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Is there a solo mode against bots or online multiplayer?</span>
+              <span class="faq-chevron">▼</span>
+            </div>
+            <div class="faq-answer">
+              Yes. The System features:
+              <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
+                <li><strong>Single Player vs AI Bots:</strong> Practice your bluffing psychology against smart AI opponents with adjustable difficulty settings.</li>
+                <li><strong>Online 1v1 Multiplayer:</strong> Play against other operatives worldwide with real-time lobbies, live reactions/taunts, and ELO competitive ranking.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>How does The System compare to Coup, Werewolf, or El Mekina?</span>
+              <span class="faq-chevron">▼</span>
+            </div>
+            <div class="faq-answer">
+              If you love the tense bluffing of Coup and the psychological deduction of Werewolf/Mafia, The System delivers a dynamic experience rooted in <em>El Mekina</em>: 3 secret cards per player for deeper tactical endurance, 7 distinct roles (Businessman, Taxman, Assassin, Marshal, Detective, Politician, Thief), the 7-Kill elimination protocol, and tactical Nine-Shield armor mechanics.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <span>Is The System free to play and pay-to-win?</span>
+              <span class="faq-chevron">▼</span>
+            </div>
+            <div class="faq-answer">
+              The System is 100% free to play with <strong>zero pay-to-win elements</strong>. Every player has identical access to roles and probabilities. Victory relies strictly on your poker face, strategic reading of opponents, and risk management.
+            </div>
+          </div>
+
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 The356Company. All rights reserved.</p>
+      </div>
+    </section>
+
+    <!-- LEGAL & PRIVACY POLICY SECTION -->
+    <section class="section-wrapper legal-section" id="privacy">
+      <div class="container">
+        <header class="section-header">
+          <div class="stamp">LEGAL & COMPLIANCE</div>
+          <h2 class="section-title">PRIVACY POLICY & TERMS</h2>
+          <p class="section-subtitle">Last Updated: October 2026 // The 356 Company</p>
+        </header>
+
+        <div class="legal-dossier">
+          <h3>1. INTRODUCTION</h3>
+          <p>
+            Welcome to "The System: Bluffing Game" ("the App"). This privacy policy outlines how The 356 Company ("we", "us", or "our") manages information when you use our mobile application and related web properties.
+          </p>
+
+          <h3>2. INFORMATION WE COLLECT</h3>
+          <p>
+            The System is engineered as a local multiplayer and privacy-preserving game that operates locally on your hardware. We do <strong>NOT</strong> collect, store, or sell any personal data, including:
+          </p>
+          <ul>
+            <li>Player nicknames or handles entered for local match setup (held only in temporary device memory during the match)</li>
+            <li>GPS or precise device location</li>
+            <li>Address book contacts, photos, microphone or camera access</li>
+            <li>Browsing history outside of the application</li>
+          </ul>
+
+          <h3>3. ADVERTISING & ADMOB COMPLIANCE</h3>
+          <p>
+            The App may display non-intrusive advertisements served through Google AdMob. Google AdMob may automatically collect non-personally identifiable diagnostic and advertising data as governed by Google's Privacy Policy, such as:
+          </p>
+          <ul>
+            <li>Advertising ID (GAID)</li>
+            <li>Device model and operating system version</li>
+            <li>General network connection status and approximate carrier region</li>
+          </ul>
+          <p>
+            Publisher authorization is verified through our published <a href="app-ads.txt" style="color:var(--cyan); font-weight:700;">app-ads.txt</a> file.
+          </p>
+
+          <h3>4. CHILDREN'S PRIVACY & AGE RATINGS</h3>
+          <p>
+            The System contains mild comic / espionage themes and is rated Everyone by the ESRB. We do not knowingly solicit or collect personal information from children under the age of 13.
+          </p>
+
+          <h3>5. DEVELOPER CONTACT</h3>
+          <p>
+            For privacy inquiries, bug reports, or tournament inquiries, please reach out directly to:<br>
+            <strong>Official Email:</strong> <a href="mailto:nejiyoussef081@gmail.com" style="color:var(--ink); font-weight:700;">nejiyoussef081@gmail.com</a><br>
+            <strong>Organization:</strong> The 356 Company / The 356 Developper
+          </p>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <picture>
+          <source srcset="assets/img/branding/logo.webp" type="image/webp">
+          <img src="assets/img/branding/logo.png" alt="The System Logo" width="140" height="46">
+        </picture>
+        <p>
+          A high-stakes bluffing card game of lies, strategy, and betrayals for 2-8 players. Deceive your friends. Survive the challenges. Subvert the system.
+        </p>
+        <div class="stamp stamp-yellow" style="font-size:0.75rem;">THE 356 COMPANY</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>PLATFORMS</h4>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.the356company.the_system" target="_blank" rel="noopener">Google Play Store (Android)</a></li>
+          <li><a href="https://youssef356.itch.io/the-system-card-game" target="_blank" rel="noopener">Itch.io (Direct APK & PC)</a></li>
+          <li><a href="https://github.com/Youssef0356/The_system-Website" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="app-ads.txt">app-ads.txt (AdMob)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>INTEL & RULES</h4>
+        <ul>
+          <li><a href="#roles">The 7 Roles</a></li>
+          <li><a href="#rules">Field Manual</a></li>
+          <li><a href="#gallery">Game Captures</a></li>
+          <li><a href="#trailer">Official Trailer</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>COMMUNICATIONS</h4>
+        <ul>
+          <li><a href="mailto:nejiyoussef081@gmail.com">nejiyoussef081@gmail.com</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="sitemap.xml">XML Sitemap</a></li>
+          <li><a href="robots.txt">Robots Directive</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 The 356 Company. All rights reserved. Inspired by El Mekina.</div>
+      <div>Designed with Neo-Brutalist Tactical Dossier Architecture.</div>
+    </div>
+  </footer>
+
+  <!-- STICKY MOBILE DOWNLOAD BAR (Converts mobile visitors to Google Play / Itch) -->
+  <aside class="mobile-sticky-bar" aria-label="Mobile Download Bar">
+    <div class="mobile-sticky-inner">
+      <div class="mobile-sticky-info">
+        <img src="assets/img/branding/Icon-192.png" alt="App Icon" class="mobile-sticky-icon" width="36" height="36">
+        <div>
+          <div class="mobile-sticky-title">The System: Card Game</div>
+          <div class="mobile-sticky-sub">2–8 PLAYERS · FREE</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:0.4rem;">
+        <a href="https://play.google.com/store/apps/details?id=com.the356company.the_system" 
+           class="btn btn-primary btn-sm"
+           target="_blank" 
+           rel="noopener noreferrer">
+          INSTALL
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- JAVASCRIPT: Interactivity, Video Player & Mobile Menu -->
+  <script>
+    // Mobile navigation toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+      // Close mobile menu on link click
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+
+    // Video Player Controller
+    const trailerVideo = document.getElementById('gameTrailer');
+    const videoOverlay = document.getElementById('videoOverlay');
+    const muteBtn = document.getElementById('muteBtn');
+
+    function togglePlayTrailer() {
+      if (!trailerVideo) return;
+      if (trailerVideo.paused) {
+        trailerVideo.play();
+        if (videoOverlay) videoOverlay.classList.add('playing');
+      } else {
+        trailerVideo.pause();
+        if (videoOverlay) videoOverlay.classList.remove('playing');
+      }
+    }
+
+    if (trailerVideo) {
+      trailerVideo.addEventListener('click', togglePlayTrailer);
+      trailerVideo.addEventListener('play', () => {
+        if (videoOverlay) videoOverlay.classList.add('playing');
+      });
+      trailerVideo.addEventListener('pause', () => {
+        if (videoOverlay) videoOverlay.classList.remove('playing');
+      });
+    }
+
+    function toggleMuteTrailer() {
+      if (!trailerVideo || !muteBtn) return;
+      trailerVideo.muted = !trailerVideo.muted;
+      muteBtn.textContent = trailerVideo.muted ? "🔇 MUTED" : "🔊 SOUND ON";
+    }
+
+    function toggleFullscreenTrailer() {
+      if (!trailerVideo) return;
+      if (trailerVideo.requestFullscreen) {
+        trailerVideo.requestFullscreen();
+      } else if (trailerVideo.webkitRequestFullscreen) {
+        trailerVideo.webkitRequestFullscreen();
+      }
+    }
+
+    // FAQ Accordion
+    function toggleFaq(el) {
+      const parent = el.closest('.faq-item');
+      if (parent) {
+        parent.classList.toggle('open');
+      }
+    }
+
+    // Auto-redirect if requested via query parameter ?redirect=playstore or ?redirect=itch
+    (function checkRedirect() {
+      const params = new URLSearchParams(window.location.search);
+      const redirectTarget = params.get('redirect');
+      if (redirectTarget === 'playstore') {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.the356company.the_system";
+      } else if (redirectTarget === 'itch') {
+        window.location.href = "https://youssef356.itch.io/the-system-card-game";
+      }
+    })();
+  </script>
 </body>
 </html>

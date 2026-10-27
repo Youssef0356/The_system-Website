@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Explicit AI Crawlers & LLM Search Engine Access
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://youssef0356.github.io/The_system-Website/sitemap.xml
